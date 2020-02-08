@@ -1,0 +1,118 @@
+
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Registracija | Konferencije</title>
+        <script src="resources/js/bootstrap.bundle.min.js" />
+        <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />-->
+        <link rel="stylesheet" type="text/css" href="resources/css/bootstrap-solar.min.css" />
+        <link rel="stylesheet" type="text/css" href="resources/css/css.css" />
+    </h:head>
+    <h:body>
+        <div class="row" style="background-color: white">
+            <div class="col-sm-1 offset-1">
+                <img src="resources/images/logo.jpg" height="100" />
+                <!--<h:graphicImage value="resources/images/logo3.jpg" height="100" />-->
+            </div>
+            <div class="col-sm-8" style="margin: auto; text-align: center;">
+                <h1>Konferencije</h1>
+            </div>
+            <div class="col-sm-2" align="right">
+                <div class="row" >
+                    <h:form>
+                        <h:commandLink action="login" value="Ulogujte se" styleClass="btn btn-link"/>
+                        <!--<h:commandLink action="register" value="Registrujte se" styleClass="btn btn-link" />-->
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <div style="width:100%">
+
+            <nav class="navbar navbar-expand-sm bg-primary navbar-dark" >
+                <!--                <a class="navbar-brand" href="#">
+                                </a>-->
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link active" href="index.xhtml">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="conference.html">Conference</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <br />
+            <div class="row">
+                <div class="col-sm-6 offset-3">
+                    <div class="h3" >Registracija</div>
+                    <h:form styleClass="form-horizontal">
+                        <h:panelGrid columns="3">
+                            Ime:
+                            <h:inputText value="#{registracija.ime}" id="ime" styleClass="form-control" validatorMessage="Nije dobro uneto ime" >
+                                <f:validateRegex pattern="^[A-Z][a-z]{2,}$" />
+                            </h:inputText>
+                            <h:message for="ime" ></h:message>
+
+                            Prezime: <h:inputText value="#{registracija.prezime}" styleClass="form-control" id="prezime" validatorMessage="Nije dobro uneto prezime" >
+                                <f:validateRegex pattern="^[A-Z][a-z]{2,}$" />
+                            </h:inputText><h:message for="prezime" >
+
+                            </h:message>
+
+                            Email: <h:inputText value="#{registracija.email}" styleClass="form-control" id="email" validatorMessage="Nije dobro unet email">
+                                <f:validateRegex pattern="^\w+([\.-_]?\w)*@\w+([\.-_]?\w)\.[a-z]{2,3}(\.[a-z]{2,3})*" />
+                            </h:inputText>
+                            <h:message for="email" errorStyle="color:red" ></h:message>
+
+
+                            Korisnicko ime:
+                            <h:inputText value="#{registracija.korime}"  styleClass="form-control" id="username" validatorMessage="Nije dobro uneto Korisnicko Ime">
+                                <f:validateRegex pattern="^[A-Za-z]+[\w\d]*$" />
+                            </h:inputText>
+                            <h:message for="username" ></h:message>
+
+                            Telefon:
+                            <h:inputText value="#{registracija.kontel}" styleClass="form-control" id="telefon" validatorMessage="Nije dobro unet broj">
+
+                            </h:inputText>
+                            <h:message for="telefon" ></h:message>
+
+                            Lozinka:
+                            <h:inputText value="#{registracija.lozinka}" styleClass="form-control" id="lozinka" validatorMessage="Nije ispravna lozinka">
+                                <f:validateRegex pattern="^[A-Za-z]+[\w\d]*$" />
+                            </h:inputText>
+                            <h:message for="lozinka" ></h:message>
+
+                            Datum rodjenja:
+                            <h:inputText value="#{registracija.datrodj}" styleClass="form-control" id="rodjendan" ></h:inputText>
+                            <h:message for="rodjendan" ></h:message>
+
+                            Organizacija:
+                            <h:inputText value="#{registracija.organizacija}" styleClass="form-control" id="organizacija" ></h:inputText>
+                            <h:message for="organizacija" ></h:message>
+                            <h:outputText value=" " />
+                            <h:commandButton value="Posalji" action="#{registracija.registracija()}" styleClass="btn btn-primary"></h:commandButton>
+
+                        </h:panelGrid>
+
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
